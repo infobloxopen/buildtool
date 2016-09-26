@@ -22,3 +22,20 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# Ignore the glide dependencies lock
+*glide.lock
+
+# Swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+
+# Auto-generated tag files
+tags
