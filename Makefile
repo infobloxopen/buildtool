@@ -1,4 +1,4 @@
-PROJECT  := infobloxopen/buildtool
+PROJECT  := infoblox/buildtool
 
 # The list of buildtool versions we are going to build,
 # make all versions as phony rules, so we will rebuild
