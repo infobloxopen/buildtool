@@ -17,5 +17,5 @@ To compile the Go binary using the provided tool, you could start with the follo
 where ```project``` variable defines the Go project:
 ```sh
 docker run --rm -v $(pwd):/go/src/${project} \
-    infobloxopen/buildtool:v1 go build -o binary
+    infoblox/buildtool:v1 go build -o binary
 ```
