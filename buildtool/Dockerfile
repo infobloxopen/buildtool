@@ -46,8 +46,8 @@ RUN curl -fsSL ${GLIDE_DOWNLOAD_URL} -o glide.tar.gz \
 COPY glide.yaml .
 
 # Compile binaries for the protocol buffer plugins. We need specific
-# versions of these tools, this is why we at first step install glide
-# download required versions, and the installin them.
+# versions of these tools, this is why we at first step install glide,
+# download required versions and then installing them.
 RUN glide up --strip-vendor --skip-test \
     && cp -r vendor/* ${GOPATH}/src/ \
     && go install github.com/golang/protobuf/protoc-gen-go \
