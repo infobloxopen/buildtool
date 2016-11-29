@@ -1,5 +1,4 @@
 PROJECT  := infoblox/buildtool
-LATEST   := latest
 
 .PHONY: all clean latest
 all: latest
@@ -7,8 +6,8 @@ all: latest
 
 # Create the Docker image with the latest tag.
 latest:
-	docker build -t $(PROJECT):$@ $(LATEST)
+	docker build -t $(PROJECT):$@ buildtool
 
 
 clean:
-	docker rmi -f $(PROJECT):$(LATEST)
+	docker rmi -f $(PROJECT):latest
