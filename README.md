@@ -6,9 +6,9 @@ This repository provides the set of the Docker images used to compile the Go pro
 
 The build of the Docker image require the [docker](https://docs.docker.com/engine/installation/)
 engine and the ```make``` utility as pre-requisites. As the requirements are satisfied, use the
-following command to compile the Docker image of version ```v1```:
+following command to compile the ```latest``` version of the Docker image:
 ```sh
-make v1
+make latest
 ```
 
 ## Usage
@@ -17,5 +17,5 @@ To compile the Go binary using the provided tool, you could start with the follo
 where ```project``` variable defines the Go project:
 ```sh
 docker run --rm -v $(pwd):/go/src/${project} \
-    infoblox/buildtool:v1 go build -o binary
+    infoblox/buildtool:latest go build -o binary
 ```

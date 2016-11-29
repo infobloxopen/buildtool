@@ -1,24 +1,15 @@
 # The docker image to build the binaries.
-FROM golang:1.5.3
+FROM golang:1.7
 MAINTAINER Yakau Bubnou <ybubnou@infoblox.com>
 WORKDIR /tmp
 
 # Set up mandatory Go environmental variables.
-ENV GO15VENDOREXPERIMENT=1
 ENV CGO_ENABLED=0
 
-# Install zip tool to unpack the protoc compiler, and the npm
-# package manager and install the REST API generator.
+# Install zip tool to unpack the protoc compiler.
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-        unzip \
-        nodejs \
-        npm \
-    && rm -rf /var/lib/apt/lists/*
-
-# Soon, we will switch to the swagger-based documentation, so it could
-# not be longer required.
-RUN npm install -g apidoc && ln -sf $(which nodejs) /usr/bin/node
+    && apt-get install -y --no-install-recommends unzip \
+    && apt-get clean
 
 # The version and the binaries checksum for the protocol buffers compiler.
 ENV PROTOC_VERSION 3.0.0
