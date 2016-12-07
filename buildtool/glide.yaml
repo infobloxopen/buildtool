@@ -8,7 +8,7 @@ import:
 
 # This package implements Go bindings for protocol buffers.
 - package: github.com/golang/protobuf/proto
-  version: 1f49d83d9aa00e6ce4fc8258c71cc7786aec968a
+  version: 8ee79997227bf9b34611aee7946ae64735e6fd93
   subpackages:
   - proto
   - protoc-gen-go
