@@ -46,8 +46,10 @@ RUN glide up --strip-vendor --skip-test \
     && go install github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
     && rm -rf vendor/* ${GOPATH}/pkg/* ${GOPATH}/src/*
 
-# Install the Go linter binary.
-RUN go get github.com/golang/lint/golint \
+# Install the Go linter binary, and JUnit report generator.
+RUN go get \
+    github.com/golang/lint/golint \
+    github.com/jstemmer/go-junit-report \
     && rm -rf ${GOPATH}/pkg/* ${GOPATH}/src/*
 
 WORKDIR ${GOPATH}
