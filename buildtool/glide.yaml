@@ -4,15 +4,19 @@ import:
 # translates a RESTful JSON API into gRPC. This server is
 # generated according to custom options in your gRPC definition.
 - package: github.com/grpc-ecosystem/grpc-gateway
-  version: v1.1.0
+  version: v1.2.2
 
 # This package implements Go bindings for protocol buffers.
-- package: github.com/golang/protobuf/proto
-  version: 1f49d83d9aa00e6ce4fc8258c71cc7786aec968a
+- package: github.com/golang/protobuf
+  version: 6a1fa9404c0aebf36c879bc50152edcc953910d2
   subpackages:
-  - proto
-  - protoc-gen-go
+    - proto
+    - protoc-gen-go
 
 # Leveled execution logs for Go.
 - package: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
+
+# Go generated proto packages.
+- package: google.golang.org/genproto
+  version: aa2eb687b4d3e17154372564ad8d6bf11c3cf21f
