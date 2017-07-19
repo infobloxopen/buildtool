@@ -23,9 +23,9 @@ RUN curl -fsSL ${PROTOC_DOWNLOAD_URL} -o protoc.zip \
     && rm -rf protoc.zip
 
 # The version and the binaries chechsum for the glide package manager.
-ENV GLIDE_VERSION 0.12.2
+ENV GLIDE_VERSION 0.12.3
 ENV GLIDE_DOWNLOAD_URL https://github.com/Masterminds/glide/releases/download/v${GLIDE_VERSION}/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz
-ENV GLIDE_DOWNLOAD_SHA256 edd398b4e94116b289b9494d1c13ec2ea37386bad4ada91ecc9825f96b12143c
+ENV GLIDE_DOWNLOAD_SHA256 0e2be5e863464610ebc420443ccfab15cdfdf1c4ab63b5eb25d1216900a75109
 
 # Download and install the glide package manager.
 RUN curl -fsSL ${GLIDE_DOWNLOAD_URL} -o glide.tar.gz \
