@@ -1,5 +1,5 @@
 # The docker image to build the binaries.
-FROM golang:1.7
+FROM golang:1.8
 MAINTAINER Yakau Bubnou <ybubnou@infoblox.com>
 WORKDIR /tmp
 
