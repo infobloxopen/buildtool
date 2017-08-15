@@ -1,6 +1,6 @@
 # The docker image to build the binaries.
-FROM golang:1.7
-MAINTAINER Yakau Bubnou <ybubnou@infoblox.com>
+FROM golang:1.8
+MAINTAINER Anton Mikhnavets <amikhnavets@infoblox.com>
 WORKDIR /tmp
 
 # Set up mandatory Go environmental variables.
