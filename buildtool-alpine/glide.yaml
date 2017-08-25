@@ -1,0 +1,22 @@
+import:
+# Grpc-gateway is a plugin of protoc. It reads gRPC service
+# definition, and generates a reverse-proxy server which
+# translates a RESTful JSON API into gRPC. This server is
+# generated according to custom options in your gRPC definition.
+- package: github.com/grpc-ecosystem/grpc-gateway
+  version: f2862b476edcef83412c7af8687c9cd8e4097c0f
+
+# This package implements Go bindings for protocol buffers.
+- package: github.com/golang/protobuf
+  version: ab9f9a6dab164b7d1246e0e688b0ab7b94d8553e
+  subpackages:
+    - proto
+    - protoc-gen-go
+
+# Leveled execution logs for Go.
+- package: github.com/golang/glog
+  version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
+
+# Go generated proto packages.
+- package: google.golang.org/genproto
+  version: ee236bd376b077c7a89f260c026c4735b195e459

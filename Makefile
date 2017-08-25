@@ -1,6 +1,7 @@
 PROJECT  := infoblox/buildtool
+PROJECT_APLINE  := infoblox/buildtool-alpine
 
-.PHONY: all clean latest
+.PHONY: all clean latest clean-alpine latest-alpine
 all: latest
 
 
@@ -11,3 +12,11 @@ latest:
 
 clean:
 	docker rmi -f $(PROJECT):latest
+
+
+latest-alpine:
+	docker build -t $(PROJECT_APLINE):latest buildtool-alpine
+
+
+clean-alpine:
+	docker rmi -f $(PROJECT_APLINE):latest
