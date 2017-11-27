@@ -50,6 +50,7 @@ RUN glide up --strip-vendor --skip-test \
 RUN go get \
     github.com/golang/lint/golint \
     github.com/jstemmer/go-junit-report \
+    github.com/golang/dep/cmd/dep \
     && rm -rf ${GOPATH}/pkg/* ${GOPATH}/src/*
 
 WORKDIR ${GOPATH}
