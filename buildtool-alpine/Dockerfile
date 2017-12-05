@@ -1,5 +1,5 @@
 # The docker image to build the go binaries
-FROM alpine:3.6
+FROM alpine:3.7
 MAINTAINER Uladzimir Trehubenka <utrehubenka@infoblox.com>
 WORKDIR /tmp
 
@@ -17,9 +17,9 @@ ENV PATH=$GOPATH/bin:$PATH
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" "$GOPATH/pkg" && chmod -R 777 $GOPATH
 
 # The version and the binaries checksum for the protocol buffers compiler
-ENV PROTOC_VERSION 3.4.0
+ENV PROTOC_VERSION 3.5.0
 ENV PROTOC_DOWNLOAD_URL https://github.com/google/protobuf/releases/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip
-ENV PROTOC_DOWNLOAD_SHA256 e4b51de1b75813e62d6ecdde582efa798586e09b5beaebfb866ae7c9eaadace4
+ENV PROTOC_DOWNLOAD_SHA256 49aa98db1877dcb69e89c7d217bb70cb1678d2266c3172f817348f2b5aab1d6a
 
 # Download and install the protocol buffers compiler.
 RUN curl -fsSL ${PROTOC_DOWNLOAD_URL} -o protoc.zip \
@@ -28,9 +28,9 @@ RUN curl -fsSL ${PROTOC_DOWNLOAD_URL} -o protoc.zip \
     && rm -rf protoc.zip
 
 # The version and the binaries checksum for the glide package manager
-ENV GLIDE_VERSION 0.12.3
+ENV GLIDE_VERSION 0.13.1
 ENV GLIDE_DOWNLOAD_URL https://github.com/Masterminds/glide/releases/download/v${GLIDE_VERSION}/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz
-ENV GLIDE_DOWNLOAD_SHA256 0e2be5e863464610ebc420443ccfab15cdfdf1c4ab63b5eb25d1216900a75109
+ENV GLIDE_DOWNLOAD_SHA256 c403933503ea40308ecfadcff581ff0dc3190c57958808bb9eed016f13f6f32c
 
 # Download and install the glide package manager.
 RUN curl -fsSL ${GLIDE_DOWNLOAD_URL} -o glide.tar.gz \
