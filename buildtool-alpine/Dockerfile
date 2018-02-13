@@ -1,20 +1,14 @@
 # The docker image to build the go binaries
-FROM alpine:3.7
+FROM golang:1.9.4-alpine3.7
 MAINTAINER Uladzimir Trehubenka <utrehubenka@infoblox.com>
 WORKDIR /tmp
 
 # Install build tools
-ENV PKG bash curl gcc git go go-tools linux-headers make musl-dev openssh unzip
+ENV PKG bash curl gcc git linux-headers make musl-dev openssh unzip
 
 RUN apk update --no-cache && \
     apk upgrade --no-cache && \
     apk add --no-cache $PKG
-
-# Set up mandatory Go environmental variables
-ENV GOPATH=/go
-ENV PATH=$GOPATH/bin:$PATH
-
-RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" "$GOPATH/pkg" && chmod -R 777 $GOPATH
 
 # The version and the binaries checksum for the protocol buffers compiler
 ENV PROTOC_VERSION 3.5.0
