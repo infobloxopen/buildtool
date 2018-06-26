@@ -1,25 +1,14 @@
 # The docker image to build the go binaries
-FROM golang:1.9.4-alpine3.7
+FROM golang:1.10.3-alpine3.7
 MAINTAINER Uladzimir Trehubenka <utrehubenka@infoblox.com>
 WORKDIR /tmp
 
 # Install build tools
-ENV PKG bash curl gcc git linux-headers make musl-dev openssh unzip
+ENV PKG bash curl gcc git linux-headers make musl-dev openssh protobuf unzip
 
 RUN apk update --no-cache && \
     apk upgrade --no-cache && \
     apk add --no-cache $PKG
-
-# The version and the binaries checksum for the protocol buffers compiler
-ENV PROTOC_VERSION 3.5.0
-ENV PROTOC_DOWNLOAD_URL https://github.com/google/protobuf/releases/download/v${PROTOC_VERSION}/protoc-${PROTOC_VERSION}-linux-x86_64.zip
-ENV PROTOC_DOWNLOAD_SHA256 49aa98db1877dcb69e89c7d217bb70cb1678d2266c3172f817348f2b5aab1d6a
-
-# Download and install the protocol buffers compiler.
-RUN curl -fsSL ${PROTOC_DOWNLOAD_URL} -o protoc.zip \
-    && echo "${PROTOC_DOWNLOAD_SHA256}  protoc.zip" | sha256sum -c - \
-    && unzip -d /usr/local protoc.zip \
-    && rm -rf protoc.zip
 
 # The version and the binaries checksum for the glide package manager
 ENV GLIDE_VERSION 0.13.1
