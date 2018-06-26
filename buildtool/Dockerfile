@@ -1,5 +1,5 @@
 # The docker image to build the binaries.
-FROM golang:1.9.2
+FROM golang:1.10.3
 MAINTAINER Anton Mikhnavets <amikhnavets@infoblox.com>
 WORKDIR /tmp
 
