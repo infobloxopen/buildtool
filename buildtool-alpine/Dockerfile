@@ -1,5 +1,5 @@
 # The docker image to build the go binaries
-FROM golang:1.10.3-alpine3.7
+FROM golang:1.11.0-alpine3.8
 MAINTAINER Uladzimir Trehubenka <utrehubenka@infoblox.com>
 WORKDIR /tmp
 
