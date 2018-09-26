@@ -13,9 +13,12 @@ make latest
 
 ## Usage
 
-To compile the Go binary using the provided tool, you could start with the following command,
-where ```project``` variable defines the Go project:
+To compile the Go binary using one of the provided tools, you could start with the following
+command:
 ```sh
 docker run --rm -v $(pwd):/go/src/${project} \
-    infoblox/buildtool:latest go build -o binary
+    infoblox/${buildtool-name}:latest go build -o binary
 ```
+Where,
+```project``` variable defines the Go project;
+```buildtool-name``` variable defines build tool Docker image name (e.g. buildtool, buildtool-alpine).
