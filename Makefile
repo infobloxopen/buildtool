@@ -15,8 +15,8 @@ clean:
 
 
 latest-alpine:
-	docker build -t $(PROJECT_APLINE):latest buildtool-alpine
+	docker build -t $(PROJECT_APLINE)-3.9:1.12 buildtool-alpine
 
 
 clean-alpine:
-	docker rmi -f $(PROJECT_APLINE):latest
+	docker rmi -f $(PROJECT_APLINE)-3.9:1.12

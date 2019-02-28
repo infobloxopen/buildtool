@@ -1,5 +1,5 @@
 # The docker image to build the go binaries
-FROM golang:1.11.0-alpine3.8
+FROM golang:1.12-alpine3.9
 MAINTAINER Uladzimir Trehubenka <utrehubenka@infoblox.com>
 WORKDIR /tmp
 
@@ -11,9 +11,9 @@ RUN apk update --no-cache && \
     apk add --no-cache $PKG
 
 # The version and the binaries checksum for the glide package manager
-ENV GLIDE_VERSION 0.13.1
+ENV GLIDE_VERSION 0.13.2
 ENV GLIDE_DOWNLOAD_URL https://github.com/Masterminds/glide/releases/download/v${GLIDE_VERSION}/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz
-ENV GLIDE_DOWNLOAD_SHA256 c403933503ea40308ecfadcff581ff0dc3190c57958808bb9eed016f13f6f32c
+ENV GLIDE_DOWNLOAD_SHA256 11b161e1c1acde4bf4e0e4bdedac36f920d184f7b165e9fc4161cf6aab147eaf
 
 # Download and install the glide package manager.
 RUN curl -fsSL ${GLIDE_DOWNLOAD_URL} -o glide.tar.gz \
@@ -35,7 +35,7 @@ RUN glide up --strip-vendor --skip-test \
     && rm -rf vendor/* ${GOPATH}/pkg/* ${GOPATH}/src/*
 
 # Install the Go linter and Go junit binary
-RUN go get github.com/golang/lint/golint \
+RUN go get golang.org/x/lint/golint \
     && go get github.com/jstemmer/go-junit-report \
     && rm -rf ${GOPATH}/pkg/* ${GOPATH}/src/*
 
