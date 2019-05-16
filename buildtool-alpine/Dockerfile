@@ -37,6 +37,7 @@ RUN glide up --strip-vendor --skip-test \
 # Install the Go linter and Go junit binary
 RUN go get golang.org/x/lint/golint \
     && go get github.com/jstemmer/go-junit-report \
+    && go get github.com/golang/dep/cmd/dep \
     && rm -rf ${GOPATH}/pkg/* ${GOPATH}/src/*
 
 WORKDIR ${GOPATH}
