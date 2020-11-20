@@ -1,6 +1,5 @@
 # The docker image to build the go binaries
 FROM golang:1.12-alpine3.9
-MAINTAINER Uladzimir Trehubenka <utrehubenka@infoblox.com>
 WORKDIR /tmp
 
 # Install build tools
@@ -10,7 +9,7 @@ RUN apk update --no-cache && \
     apk upgrade --no-cache && \
     apk add --no-cache $PKG
 
-# The version and the binaries checksum for the glide package manager
+# The version and the binaries checksum for the glide package manager.
 ENV GLIDE_VERSION 0.13.2
 ENV GLIDE_DOWNLOAD_URL https://github.com/Masterminds/glide/releases/download/v${GLIDE_VERSION}/glide-v${GLIDE_VERSION}-linux-amd64.tar.gz
 ENV GLIDE_DOWNLOAD_SHA256 11b161e1c1acde4bf4e0e4bdedac36f920d184f7b165e9fc4161cf6aab147eaf
@@ -34,10 +33,11 @@ RUN glide up --strip-vendor --skip-test \
     && go install github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
     && rm -rf vendor/* ${GOPATH}/pkg/* ${GOPATH}/src/*
 
-# Install the Go linter and Go junit binary
-RUN go get golang.org/x/lint/golint \
-    && go get github.com/jstemmer/go-junit-report \
-    && go get github.com/golang/dep/cmd/dep \
+# Install the Go linter binary, and JUnit report generator.
+RUN go get \
+    golang.org/x/lint/golint \
+    github.com/jstemmer/go-junit-report \
+    github.com/golang/dep/cmd/dep \
     && rm -rf ${GOPATH}/pkg/* ${GOPATH}/src/*
 
 WORKDIR ${GOPATH}
