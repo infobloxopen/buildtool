@@ -1,5 +1,5 @@
 # The docker image to build the go binaries
-FROM golang:1.9.2
+FROM golang:1.15.5
 WORKDIR /tmp
 
 # Set up mandatory Go environmental variables.
