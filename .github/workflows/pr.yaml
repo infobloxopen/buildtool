@@ -1,0 +1,16 @@
+name: PR
+on: pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - latest
+          - latest-alpine
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - run: make ${{ matrix.target }}
