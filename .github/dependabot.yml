@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: docker
+    directory: "/buildtool"
+    schedule:
+      interval: daily
+  - package-ecosystem: docker
+    directory: "/buildtool-alpine"
+    schedule:
+      interval: daily
