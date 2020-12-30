@@ -8,9 +8,11 @@ jobs:
       fail-fast: false
       matrix:
         target:
-          - latest
-          - latest-alpine
+          - test-debian
+          - test-alpine
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - run: make ${{ matrix.target }}
+      - run: |
+          make ${{ matrix.target }}
+          make clean
