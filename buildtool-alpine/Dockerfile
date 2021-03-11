@@ -1,5 +1,5 @@
 # The docker image to build the go binaries
-FROM golang:1.15.5-alpine3.12
+FROM golang:1.16.1-alpine3.12
 WORKDIR /tmp
 
 # Install build tools
